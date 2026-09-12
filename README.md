@@ -9,6 +9,21 @@ During surge conditions, hospitals must allocate scarce resources (ICU beds, oxy
 1. Is the current allocation state **SAFE** (exists a completion ordering without deadlock)?
 2. As patient load increases, what is the **estimated probability of collapse** (admission failure or unsafe state)?
 
+The Hospital Resource Stability Lab is an interactive simulation framework
+for studying hospital resource stability under increasing workload.
+
+It combines:
+
+- Banker's Algorithm for multi-resource safety analysis
+- Monte Carlo simulation for collapse-probability estimation
+- Dynamic staffing and resource-capacity modeling
+- Empirically informed arrival and length-of-stay models
+- Wilson confidence intervals and sensitivity analysis
+- Interactive Flask dashboard with streamed Monte Carlo results
+
+The system is designed as an academic research and demonstration tool,
+not as a clinical decision-support system.
+
 ## Mathematical Model
 
 | Symbol | Meaning |
@@ -98,15 +113,6 @@ Isolated one-resource perturbations: `ε_k = (n50(C + Δc_k e_k) − n50(C)) / �
 
 ```bash
 pip install -r requirements.txt
-```
-
-## Running Locally
-
-**Web dashboard (development server):**
-```bash
-cd pandemic_dashboard
-python app.py
-# Open http://127.0.0.1:5000
 ```
 
 Debug is **OFF** by default. For local debugging only:
