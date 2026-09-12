@@ -3,9 +3,9 @@
 import os
 import sys
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "pandemic_dashboard"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from comments_store import (
+from pandemic_dashboard.comments_store import (
     MAX_COMMENT_LEN,
     MAX_NAME_LEN,
     add_comment,

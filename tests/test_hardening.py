@@ -9,16 +9,16 @@ from concurrent.futures import ThreadPoolExecutor
 from unittest.mock import patch
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "pandemic_bankers"))
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "pandemic_dashboard"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from comments_store import add_comment, init_db, list_comments
 from data.distributions import fit_los_from_quantiles, quantile_sse
 from data.pipeline import load_literature_los
-from rate_limit_store import reset_rate_limit
+from pandemic_dashboard.comments_store import add_comment, init_db, list_comments
+from pandemic_dashboard.rate_limit_store import reset_rate_limit
 
 
 def test_flask_debug_disabled_by_default():
-    from app import flask_debug_enabled
+    from pandemic_dashboard.app import flask_debug_enabled
 
     old = os.environ.get("FLASK_DEBUG")
     try:
@@ -51,7 +51,7 @@ def test_comment_xss_regression():
 
 
 def test_comment_rate_limit_429():
-    from app import app
+    from pandemic_dashboard.app import app
 
     init_db()
     client = app.test_client()
@@ -89,7 +89,7 @@ def test_los_reconstruction_sse_is_computed_not_zero_claim():
 
 
 def test_mc_stream_concurrency_isolated():
-    from app import app
+    from pandemic_dashboard.app import app
     from simulation.monte_carlo import monte_carlo_sweep
 
     demand = {
@@ -148,7 +148,7 @@ def test_mc_stream_concurrency_isolated():
 
 
 def test_smoke_routes_return_controlled_status():
-    from app import app
+    from pandemic_dashboard.app import app
 
     client = app.test_client()
     assert client.get("/").status_code == 200

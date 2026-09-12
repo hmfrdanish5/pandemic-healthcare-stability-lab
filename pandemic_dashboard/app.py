@@ -42,7 +42,7 @@ from simulation.mc_export import (  # noqa: E402
 )
 from utils.config_loader import ConfigLoader, ConfigError  # noqa: E402
 
-from comments_store import (  # noqa: E402
+from .comments_store import (  # noqa: E402
     add_comment,
     add_feedback,
     delete_comment,
@@ -52,7 +52,7 @@ from comments_store import (  # noqa: E402
     list_comments,
     update_comment,
 )
-from rate_limit_store import check_rate_limit  # noqa: E402
+from .rate_limit_store import check_rate_limit  # noqa: E402
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

@@ -5,7 +5,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "pandemic_bankers"))
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "pandemic_dashboard"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from simulation.mc_experiment import validate_experiment_params
 from simulation.mc_export import (
@@ -166,7 +166,7 @@ def test_parse_export_rejects_non_object():
 
 
 def test_flask_validation_not_500():
-    from app import app
+    from pandemic_dashboard.app import app
     client = app.test_client()
     resp = client.post(
         "/api/mc_experiment/stream",
@@ -186,7 +186,7 @@ def test_flask_validation_not_500():
 
 
 def test_flask_stream_and_export_roundtrip():
-    from app import app
+    from pandemic_dashboard.app import app
     client = app.test_client()
     resp = client.post(
         "/api/mc_experiment/stream",

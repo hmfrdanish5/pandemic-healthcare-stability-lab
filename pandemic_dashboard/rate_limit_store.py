@@ -6,7 +6,10 @@ import os
 import sqlite3
 import time
 
-from comments_store import _connect
+try:
+    from .comments_store import _connect
+except ImportError:  # flat import when pandemic_dashboard/ is on sys.path (tests)
+    from comments_store import _connect
 
 
 def check_rate_limit(client_key: str, min_interval_s: float) -> bool:
