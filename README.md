@@ -2,6 +2,8 @@
 
 Interactive academic tool for **Banker's Algorithm** safety analysis and **Monte Carlo** collapse-probability estimation under pandemic-like hospital workload conditions.
 
+(live demo: https://pandemic-healthcare-stability-lab.onrender.com/)
+
 ## Problem Statement
 
 During surge conditions, hospitals must allocate scarce resources (ICU beds, oxygen, ventilators, staff, blood products) across patients with varying severity. This project models each patient as a process in a multi-resource allocation system and asks:
@@ -117,7 +119,7 @@ Isolated one-resource perturbations: `ε_k = (n50(C + Δc_k e_k) − n50(C)) / �
 pip install -r requirements.txt
 ```
 
-## Running Locally
+## for Running
 
 Debug is **OFF** by default. For local debugging only:
 ```bash
@@ -125,7 +127,7 @@ set FLASK_DEBUG=1
 python app.py
 ```
 
-**Public / portfolio hosting:** do **not** use `python app.py` or `FLASK_DEBUG=1`. Use a WSGI server, for example:
+**Public / portfolio hosting:** plz do **not** use `python app.py` or `FLASK_DEBUG=1`. Use a WSGI server, for example:
 
 ```bash
 cd pandemic_dashboard
@@ -133,7 +135,7 @@ pip install waitress
 waitress-serve --listen=127.0.0.1:5000 app:app
 ```
 
-On Linux you may use gunicorn instead: `gunicorn -w 1 -b 127.0.0.1:5000 app:app` (from `pandemic_dashboard/`).
+On Linux you may use gunicorn instead: `gunicorn -w 1 -b local_ip app:app` (from `pandemic_dashboard/`).
 
 **CLI analysis:**
 ```bash
