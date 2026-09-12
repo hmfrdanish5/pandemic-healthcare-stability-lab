@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+venv/
+.venv/
+*.egg
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Project outputs
+pandemic_bankers/collapse_probability_curve.png
+pandemic_bankers/stability_curve.png
+pandemic_bankers/resource_utilization_at_collapse.png
+pandemic_bankers/stability_report.json
+pandemic_bankers/data/cache/*.json
+
+# Runtime state (comments, rate limits) — not for version control
+pandemic_dashboard/data/*.db
+pandemic_dashboard/data/*.db-wal
+pandemic_dashboard/data/*.db-shm
+pandemic_dashboard/data/comments.json
+pandemic_dashboard/data/comments.json.tmp
+*.db
+
+# Environment
+.env
+.env.*
+
+# OS
+Thumbs.db
+.DS_Store
