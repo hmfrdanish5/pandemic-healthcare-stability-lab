@@ -132,7 +132,7 @@ python app.py
 ```bash
 cd pandemic_dashboard
 pip install waitress
-waitress-serve --listen=127.0.0.1:5000 app:app
+waitress-serve --listen=local_ip app:app
 ```
 
 On Linux you may use gunicorn instead: `gunicorn -w 1 -b local_ip app:app` (from `pandemic_dashboard/`).
