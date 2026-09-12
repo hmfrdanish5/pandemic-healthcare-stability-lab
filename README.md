@@ -132,10 +132,10 @@ python app.py
 ```bash
 cd pandemic_dashboard
 pip install waitress
-waitress-serve --listen=local_ip app:app
+waitress-serve --listen=loopback/local-onlyaddress app:app
 ```
 
-On Linux you may use gunicorn instead: `gunicorn -w 1 -b local_ip app:app` (from `pandemic_dashboard/`).
+On Linux you may use gunicorn instead: `gunicorn -w 1 -b loopback/local-only address app:app` (from `pandemic_dashboard/`).
 
 **CLI analysis:**
 ```bash
